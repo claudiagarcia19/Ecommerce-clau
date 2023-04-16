@@ -4,7 +4,7 @@ import "./navBar.css"
     
 const NavBar = () => {
     return (
-        <nav>
+        <nav className="nav">
             <h3>Ecommerce</h3>
             <div className="contenedor-botones">
                 <button className="boton-1">Celulares</button>

@@ -4,14 +4,19 @@
     box-sizing: border-box;
 }
 
+.nav{
+    background-color: antiquewhite;
+}
+
 .contenedor-botones{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     align-items: center;
     margin-top: 70px;
     background: #fff;
     box-shadow: 2px 3px 3px rgb (196, 196, 196);
+    background-color: antiquewhite;
 }
 
 
