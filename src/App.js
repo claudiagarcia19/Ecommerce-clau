@@ -1,4 +1,5 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer.js/ItemListContainer';
 import ItemDetailcontainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -8,9 +9,15 @@ import ItemDetailcontainer from './components/ItemDetailContainer/ItemDetailCont
 function App() {
   return (
     <div className="App">
-       <NavBar />
-       <ItemListContainer greeting= {'Bienvenidos'}/>
-       <ItemDetailcontainer/>
+      <BrowserRouter>  
+        <NavBar />
+        <Routes>
+          <Route patch="/" element={<ItemListContainer greeting= {'Bienvenidos'}/>}/>
+          <Route patch="/category/:categoryId" element={<ItemListContainer/>}/>  
+          <Route patch="/Item/:ItemId" element= {<ItemDetailcontainer/>}/>
+          <Route patch="*" element={<h1>404 NOT FOUND</h1>}/>
+        </Routes>
+      </BrowserRouter> 
     </div>
   )
 }

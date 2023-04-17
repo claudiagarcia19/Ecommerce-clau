@@ -4,13 +4,13 @@ const products = [
         name:"Iphone 12",
         Price:1000,
         category:"celular",
-        img:"../img/iphone-12-303x300.webp",
+        img:"../img/iphone-12-300x300.webp",
         stock:25,
         description:"Description de Iphone 12"
 
     },
     {id:"2", name:"Samsung S21", Price:800, category:"celular",
-    img:"../img/Samsung-galaxy-S21-303x300.jpg", stock:16,
+    img:"../img/Samsung-galaxy-S21-300x300.jpg", stock:16,
     description:"Description de Samsung S21"},
     {id:"3", name:"Ipad 8va generacion", Price:1200, category:"tablet",
     img:"../img/ipad8.jpg", stock:10,
