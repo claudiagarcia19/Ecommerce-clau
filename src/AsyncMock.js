@@ -13,7 +13,7 @@ const products = [
     img:"../img/Samsung-galaxy-S21-300x300.jpg", stock:16,
     description:"Description de Samsung S21"},
     {id:"3", name:"Ipad 8va generacion", Price:1200, category:"tablet",
-    img:"../img/ipad8nuevo.webp", stock:10,
+    img:"../img/ipaq8nuevo.webp", stock:10,
     description:"Description de Ipad 8va generacion"}         
 ]
 
