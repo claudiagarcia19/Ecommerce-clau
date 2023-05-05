@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
-import Cartitem from "../cartItem/cartItem";
+import CartItem from "../CartItem/CartItem";
 import { Link } from "react-router-dom";
 
 
@@ -17,7 +17,7 @@ const Cart = () => {
     }
     return (
         <div>
-            { Cart.map(p => <Cartitem key={p.id} {...p}/>)}
+            { cart.map(p => <CartItem key={p.id} {...p}/>)}
             <h3>Total: ${total}</h3>
             <button onClick={() => clearCart()} className="Button">Limpiar carrito</button>
             <Link to="/checkout" className="Option">Checkout</Link>
@@ -26,3 +26,4 @@ const Cart = () => {
 
 }
 
+export default Cart
