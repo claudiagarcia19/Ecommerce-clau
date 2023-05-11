@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
 import { db } from "../FirebaseEcommerce/database";
 import { Timestamp, addDoc, documentId, query, writeBatch } from "firebase/firestore";
-import {CheckoutForm}  from "../CheckoutForm/CheckoutForm";
+import CheckoutForm  from "./CheckoutForm/CheckoutForm";
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -49,41 +49,41 @@ const Checkout = () => {
                 }
             })
 
-            if(outOfStock.length === 0) {
-                await batch.commit()
+                if(outOfStock.length === 0) {
+                   await batch.commit()
 
-                const orderRef = collection(db, "orders")
+                   const orderRef = collection(db, "orders")
 
-                const orderAdded = await addDoc(orderRef, objOrder)
+                   const orderAdded = await addDoc(orderRef, objOrder)
 
-                setOrderId(orderAdded.id)
-                clearCart()
-            } else {
-                console.error("hay productos que estan fuera de stock")
+                   setOrderId(orderAdded.id)
+                   clearCart()
+                } else {
+                   console.error("hay productos que estan fuera de stock")
+                }
+
+
+            } catch (error) {
+               console.log(error)
+            }finally {
+               setLoading(false)
             }
+         }
 
+       if(loading) {
+          return <h1>Se esta generando su orden...</h1>
+       }
 
-        } catch (error) {
-            console.log(error)
-        }finally {
-            setLoading(false)
-        }
-    }
+       if(orderId) {
+          return <h1>El id de su orden es: {orderId} </h1>
+       }
 
-    if(loading) {
-        return <h1>Se esta generando su orden...</h1>
-    }
-
-    if(orderId) {
-        return <h1>El id de su orden es: {orderId} </h1>
-    }
-
-    return(
-        <div>
+       return(
+         <div>
             <h1>Checkout</h1>
             <CheckoutForm onConfirm={createOrder}/>
-        </div>
-    )
-}
+         </div>
+       )
+    }
 
-export default Checkout
+    export default Checkout
