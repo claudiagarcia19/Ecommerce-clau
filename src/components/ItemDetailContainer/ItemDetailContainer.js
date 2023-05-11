@@ -11,20 +11,24 @@ const ItemDetailcontainer = () =>{
     const {itemId} = useParams()
 
     useEffect(() =>{
-        const docRef = doc(db,"products",itemId)
-        getDoc(docRef)
-          .then(response =>{
-            const dataProducto= 
-                response.data()
-            const productoCompleto = { ...dataProducto, id:response.id}
-            setProduct(productoCompleto)
-            })
-          .catch(error => {
-            console.log(error)
-        })
+        const getProducto =async () => {
+            const queryRef = doc(db,"products",itemId);
+            const response = await
+        getDoc(queryRef);
+            const newItem = {
+                Id:response.id, ...response.data(),
+            };
+            console.log(newItem.Id)
+            setTimeout(() => {
+                setProduct(newItem);
+            }, 500)
+           };
+           getProducto();
 
-    }, [itemId])
-
+        },[itemId]
+        
+    )    
+        
     return(
         <div className="ItemDetailContainer">
             <ItemDetail {...product}/>
