@@ -32,7 +32,7 @@ const CheckoutForm = ({onConfirm}) =>{
                 Telefono
                 <input
                   className="input"
-                  type="text"
+                  type="number"
                   value={phone}
                   onChange={({target}) => setPhone(target.value)}
                   />
