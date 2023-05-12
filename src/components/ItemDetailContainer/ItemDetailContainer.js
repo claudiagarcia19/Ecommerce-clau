@@ -16,9 +16,9 @@ const ItemDetailcontainer = () =>{
             const response = await
         getDoc(queryRef);
             const newItem = {
-                Id:response.id, ...response.data(),
+                id:response.id, ...response.data(),
             };
-            console.log(newItem.Id)
+        
             setTimeout(() => {
                 setProduct(newItem);
             }, 500)

@@ -37,10 +37,10 @@ const Checkout = () => {
 
             docs.forEach(doc => {
                 const dataDoc = doc.data()
-                const stockDb = dataDoc.stockDb
+                const stockDb = dataDoc.stock
 
                 const productsAddedToCart = cart.find(prod => prod.id === doc.id)
-                const prodQuantity = productsAddedToCart?.prodQuantity
+                const prodQuantity = productsAddedToCart?.quantity
 
                 if(stockDb >= prodQuantity) {
                     batch.update( doc.ref, { stock: stockDb - prodQuantity})
