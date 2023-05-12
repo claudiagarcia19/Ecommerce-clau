@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
 import { db } from "../FirebaseEcommerce/database";
-import { Timestamp, addDoc, documentId, query, writeBatch } from "firebase/firestore";
-import CheckoutForm  from "./CheckoutForm/CheckoutForm";
+import { Timestamp, addDoc, documentId, query, writeBatch, where, getDocs, collection, } from "firebase/firestore";
+import CheckoutForm  from "../CheckoutForm/CheckoutForm";
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
